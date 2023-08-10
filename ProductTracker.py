@@ -2,15 +2,19 @@ import smtplib
 import requests
 from bs4 import BeautifulSoup
 
+# Change the url string value below to the exact website (Amazon/Flipkart) link of the product you wish to track
 url= 'https://www.flipkart.com/google-pixel-6a-charcoal-128-gb/p/itme5ae89135d44e?pid=MOBGFKX5YUXD74Z3&lid=LSTMOBGFKX5YUXD74Z3MXA2OB&marketplace=FLIPKART&sattr[]=color&st=color'
 site_name = url.split(".")[1]
 
+# Search 'my user agent' in your preferred browser and paste the information displayed within {} as below
 headers = {"User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/116.0'}
 page = requests.get(url, headers=headers)
 soup = BeautifulSoup(page.content, 'html.parser')
+
+#Change this value to the price you want compare the product's price against
 threshold_amt = 27999
 
-
+# Mail Function
 def send_email(info):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
@@ -28,7 +32,7 @@ def send_email(info):
     print("Hey, email has been sent!")
     server.quit()
 
-
+# Product Stock Availability Function
 def check_availability(site):
     if site == 'amazon':
         name = soup.find(id="productTitle").get_text().strip()
@@ -44,7 +48,7 @@ def check_availability(site):
             info = f"{name} is available in stock."
             send_email(info)
 
-
+# Product Price Drop Function
 def price_drop(site):
     if site == 'amazon':
         name = soup.find(id="productTitle").get_text().strip()
@@ -64,12 +68,12 @@ def price_drop(site):
             info = f"Price of {name} on {site.title()} has dropped to {final_price}."
             send_email(info)
 
-
+# Use the following function calls as per your requirement
 price_drop(site_name)
 check_availability(site_name)
 
 '''
-# For user controlled inputs
+# For various user controlled inputs
 
 user = int(input("Enter 1 to check for price drop or 2 to check product in stock availability: "))
 
