@@ -12,16 +12,19 @@
   pip install requests
   pip install -U selenium
   ```
+- Download the [Chromium Webdriver](https://chromedriver.chromium.org/downloads) for Google Chrome or [Geckodriver](https://github.com/mozilla/geckodriver/releases) for Mozilla Firefox
 
- ## Information
+ ## Usage
 
  ProductTracker.py has the following features:
  - Can check whether a product is in stock on Amazon/Flipkart
  - Can check whether a product price has dropped on Amazon/Flipkart
  - Automatically sends a mail to specified gmail address upon success
+<br> </br>
 
 checkstock.py uses Selenium WebDriver to check whether a specific shirt size is available on TheSouledStore site. 
-- I made this since some websites are created via javascript after the initial HTML page has loaded into the browser. Requests is just an HTTP client, not a full-fledged browser engine, so it doesn't execute the Javascript that ends up fetching that element such as the shirt size from this website.
+- I made this as an example since some websites are created via javascript after the initial HTML page has loaded into the browser.
+- Requests is just an HTTP client, not a full-fledged browser engine, so it doesn't execute the Javascript that contains the element such as the shirt size from this website. Hence Selenium is used.
 
  ## Mailing Feature
 
