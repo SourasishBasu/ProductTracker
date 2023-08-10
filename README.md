@@ -32,7 +32,7 @@ checkstock.py uses Selenium WebDriver to check whether a specific shirt size is 
  - Go to your google account enable 2 Step Verification
  - Search for App Passwords in Your Account
  - Set the type of application, to Mail and type of device to Windows Computer.
- - Click Generate, replace the password provided in the popup into the script where it says 'EMAIL_PASSWORD.
+ - Click Generate, replace the password provided in the popup into the script where it says 'EMAIL_PASSWORD'.
  - Change the recipient and senders email address details in the respective places within the script.
 
 
