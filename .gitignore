@@ -1,2 +1,24 @@
-# Ignore geckodriver.log files
+__pycache__/
+*.pyc
+log.txt
+.pytest_cache/
+bin/
+build/
+dist/
+lib/
+lib64/
+parts/
+sdist/
+var/
+.installed.cfg
+
+.vscode/
+testenv/
+/coverage.data
+.coverage
+coverage/
+venv
 .log
+.idea
+.pymon
+.python-version
